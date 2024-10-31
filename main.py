@@ -1,27 +1,54 @@
-#Escriba un programa que pida al usuario dos palabras, y que indique cuál de ellas es la más larga y por cuántas letras lo es.
+#Escriba un programa que reciba como entrada dos números, y los muestre ordenados de menor a mayor:
+#
+#Ingrese numero: 51
+#Ingrese numero: 24
+#24 51
+#A continuación, escriba otro programa que haga lo mismo con tres números:
 
-#Palabra 1: edificio
-#Palabra 2: tren
-#La palabra edificio tiene 4 letras mas que tren.
-#Palabra 1: sol
-#Palabra 2: paralelepipedo
-#La palabra paralelepipedo tiene 11 letras mas que sol
-#Palabra 1: plancha
-#alabra 2: lapices
-#Las dos palabras tienen el mismo largo
+#Ingrese numero: 8
+#Ingrese numero: 1
+#Ingrese numero: 4
+#1 4 8
+#Finalmente, escriba un tercer programa que ordene cuatro números:
 
+#Ingrese numero: 7
+#Ingrese numero: 0
+#Ingrese numero: 6
+#Ingrese numero: 1
+# 1 6 7
+#Recuerde que su programa debe entregar la solución correcta para cualquier combinación de números, no sólo para los ejemplos mostrados aquí.
 
-word1 = input("word 1: ")
-word2 = input("word2: ")
+#Hay más de una manera de resolver cada ejercici#o.
 
-long1 = len(word1)
-long2 = len(word2)
+#Programa para ordenar dos números:
 
-if long1 > long2:
-    diference = long1 - long2
-    print(f"the word {word1} have {diference} more letters than {word2}.")
-elif long2 > long1:
-    diference = long2 - long1
-    print(f"the word {word2} have {diference} more letters than  {word1}.")
+number1 = int(input("insert number: "))
+number2 = int(input("insert number: "))
+
+if number1 > number2:
+    print(number2, number1)
 else:
-    print("both words are same number of letters.")
+    print(number1, number2)
+
+#print("Exercise 5 sort numbers")
+
+number1 = int(input("insert number: "))
+number2 = int(input("insert number: "))
+number3 = int(input("insert number: "))
+
+numbers = [number1 ,number2, number3]
+numbers.sort()
+
+print(numbers)
+
+#print("Exercise 5 sort numbers")
+
+n1 = int(input("insert number: "))
+n2 = int(input("insert number: "))
+n3 = int(input("insert number: "))
+n4 = int(input("insert number: "))
+
+numbers = [n1 ,n2, n3, n4]
+numbers.sort()
+
+print(numbers)
