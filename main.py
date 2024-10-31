@@ -1,25 +1,43 @@
-#Escriba un programa que determine si un caracter ingresado es letra, número, o ninguno de los dos. 
-# En caso que sea letra, determine si es mayúscula o minúscula.
+#Escriba un programa que simule una calculadora básica, este puede realizar operación de suma, resta, multiplicación y división.
+#El programa debe recibir como entrada 2 números reales y un operador, que puede ser +, -, * o /.
+#La salida del programa debe ser el resultado de la operación.
+#Operando: 3
+#Operador: +
+#Operando: 2
+#3 + 2 = 5
+#Operando: 6
+#Operador: -
+#Operando: 7
+#6 - 7 = -1
+#Operando: 4
+#Operador: *
+#Operando: 5
+#4 * 5 = 20
+#Operando: 10
+#Operador: /
+#Operando: 4
+#10 / 4 = 2.5
+#Operando: -1
+#Operador: **
+#Operando: 4
+#-1 ** 4 = 1
 
-#Ingrese caracter: 9
-#Es numero.
-#Ingrese caracter: A
-#Es letra mayúscula.
-#Ingrese caracter: f
-#Es letra minúscula.
-#Ingrese caracter: #
-#No es letra ni número.#
+number1 = float(input("Insert number: "))
+symbol = (input("Insert operator (+, -, *, /): "))
+number2 = float(input("Insert number: "))
 
-
-character = input ("insert a single character: ")
-
-if character.isdigit():
-    print ("Is a number")
-
-elif character.isalpha(): 
-    if character.isupper():
-        print ("the letter is odded")
-    else:
-        print ("the letter is lowercase")
+if symbol == "+":
+    answer1 = number1 + number2
+    print (f"{number1} + {number2} = {answer1}")
+elif symbol == "-":
+    answer2 = number1 - number2
+    print (f"{number1} - {number2} = {answer2}")
+elif symbol == "*":
+    answer3 = number1 * number2
+    print (f"{number1} * {number2} = {answer3}")
+elif symbol == "/":
+    if number2 !=0:
+        answer4 = number1 / number2
+        print (f"{number1} / {number2} = {answer4}")
 else:
-    print ("It is neither a letter nor a number")
+        print ("No valid")
