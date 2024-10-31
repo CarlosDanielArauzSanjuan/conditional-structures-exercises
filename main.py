@@ -1,43 +1,43 @@
-#Escriba un programa que simule una calculadora básica, este puede realizar operación de suma, resta, multiplicación y división.
-#El programa debe recibir como entrada 2 números reales y un operador, que puede ser +, -, * o /.
-#La salida del programa debe ser el resultado de la operación.
-#Operando: 3
-#Operador: +
-#Operando: 2
-#3 + 2 = 5
-#Operando: 6
-#Operador: -
-#Operando: 7
-#6 - 7 = -1
-#Operando: 4
-#Operador: *
-#Operando: 5
-#4 * 5 = 20
-#Operando: 10
-#Operador: /
-#Operando: 4
-#10 / 4 = 2.5
-#Operando: -1
-#Operador: **
-#Operando: 4
-#-1 ** 4 = 1
+#Escriba un programa que entregue la edad del usuario a partir de su fecha de nacimiento:
 
-number1 = float(input("Insert number: "))
-symbol = (input("Insert operator (+, -, *, /): "))
-number2 = float(input("Insert number: "))
+#Ingrese su fecha de nacimiento.
+#Dia: 14
+#Mes: 6
+#Anno: 1948
+#Usted tiene 62 annos
+#Por supuesto, el resultado entregado depende del día en que su programa será ejecutado.
 
-if symbol == "+":
-    answer1 = number1 + number2
-    print (f"{number1} + {number2} = {answer1}")
-elif symbol == "-":
-    answer2 = number1 - number2
-    print (f"{number1} - {number2} = {answer2}")
-elif symbol == "*":
-    answer3 = number1 * number2
-    print (f"{number1} * {number2} = {answer3}")
-elif symbol == "/":
-    if number2 !=0:
-        answer4 = number1 / number2
-        print (f"{number1} / {number2} = {answer4}")
-else:
-        print ("No valid")
+#Para obtener la fecha actual, puede hacerlo usando la función localtime que viene en el módulo time. Los valores se obtienen de la siguiente manera (suponiendo que hoy es 11 de marzo de 2011):
+
+#3>>> from time import localtime
+#>>> t = localtime()
+#>>> t.tm_mday
+#11
+#>>> t.tm_mon
+#3
+#>>> t.tm_year
+#2011
+from time import localtime
+
+day = int(input("Please, enter your day of birth: "))
+month = int(input("Please, enter your nonth of birth: "))
+year = int(input("Please, enter your year of birth: "))
+
+t = localtime()
+actual_day = t.tm_mday
+actual_month = t.tm_mon
+actual_year = t.tm_year
+
+age = actual_year - year
+
+if (actual_month < month) or (actual_month == month and actual_day < day):
+    age -=1 
+
+print (f"you have {age} years old")
+
+# !!!! watchouts !!!
+#from time import localtime
+#t = localtime()
+#actual_day = t.tm_mday
+#actual_month = t.tm_mon
+#actual_year = t.tm_year
