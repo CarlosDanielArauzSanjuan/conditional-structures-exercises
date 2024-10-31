@@ -1,33 +1,27 @@
-#Los tres lados a, b y c de un triángulo deben satisfacer la desigualdad triangular: cada uno de los lados no puede ser más largo que la suma de los otros dos.
+#El riesgo de que una persona sufra enfermedades coronarias depende de su edad y su índice de masa corporal:
 
-#Escriba un programa que reciba como entrada los tres lados de un triángulo, e indique:
+# 	edad < 45	edad ≥ 45
+#IMC < 22.0	bajo	medio
+#IMC ≥ 22.0	medio	alto
+#El índice de masa corporal es el cuociente entre el peso del individuo en kilos y el cuadrado de su estatura en metros.
 
-#si acaso el triángulo es inválido; y
-#si no lo es, qué tipo de triángulo es.
-#Ingrese a: 3.9
-#Ingrese b: 6.0
-#Ingrese c: 1.2
-#No es un triangulo valido.
-#Ingrese a: 1.9
-#Ingrese b: 2
-#Ingrese c: 2
-#El triangulo es isoceles.
-#Ingrese a: 3.0
-#Ingrese b: 5.0
-#Ingrese c: 4.0
-#El triangulo es escaleno.
+#Escriba un programa que reciba como entrada la estatura, el peso y la edad de una persona, y le entregue su condición de riesgo.
 
+stature  = float(input("Enter stature: "))
+Weight   = float(input("Enter weight: "))
+age      = float(input("Enter age: "))
 
-t1 = float(input("Enter side A: "))
-t2 = float(input("Enter side B: "))
-t3 = float(input("Enter side C: "))
+corporal  = Weight / (stature**2)
 
-if t1 + t2 > t3 and t1 + t3 > t2 and t2 + t3 > t1:
-    if  t1 == t2 == t3:
-        print ("triangle is equilateral")
-    elif t1 == t2 or t1 == t3 or t2 == t3:
-        print ("triangle is isosceles")
+if age < 45:
+    if corporal < 22.0:
+        risk = "low"
     else:
-        print ("triangle is scalene")
+        risk = "medium"
 else:
-    print ("its no a valid triangle ")
+    if corporal < 22.0:
+        risk = "medium"
+    else:
+        risk = "high"
+
+print(f"Your risk of coronary heart disease is {risk}.")
