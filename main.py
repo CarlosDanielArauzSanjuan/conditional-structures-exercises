@@ -1,43 +1,42 @@
-#Escriba un programa que entregue la edad del usuario a partir de su fecha de nacimiento:
+#El joven periodista Solarrabietas debe relatar un partido de tenis, pero no conoce las reglas del deporte. En particular, no ha logrado aprender cómo saber si un set ya terminó, y quién lo ganó.
 
-#Ingrese su fecha de nacimiento.
-#Dia: 14
-#Mes: 6
-#Anno: 1948
-#Usted tiene 62 annos
-#Por supuesto, el resultado entregado depende del día en que su programa será ejecutado.
+#Un partido de tenis se divide en sets. Para ganar un set, un jugador debe ganar 6 juegos, pero además debe haber ganado por lo menos dos juegos más que su rival. Si el set está empatado a 5 juegos, el ganador es el primero que llegue a 7. Si el set está empatado a 6 juegos, el set se define en un último juego, en cuyo caso el resultado final es 7-6.
 
-#Para obtener la fecha actual, puede hacerlo usando la función localtime que viene en el módulo time. Los valores se obtienen de la siguiente manera (suponiendo que hoy es 11 de marzo de 2011):
+#Sabiendo que el jugador A ha ganado m juegos, y el jugador B, n juegos, al periodista le gustaría saber:
 
-#3>>> from time import localtime
-#>>> t = localtime()
-#>>> t.tm_mday
-#11
-#>>> t.tm_mon
-#3
-#>>> t.tm_year
-#2011
-from time import localtime
+#si A ganó el set, o
+#si B ganó el set, o
+#si el set todavía no termina, o
+#si el resultado es inválido (por ejemplo, 8-6 o 7-3).
+#Desarrolle un programa que solucione el problema de Solarrabietas:
 
-day = int(input("Please, enter your day of birth: "))
-month = int(input("Please, enter your nonth of birth: "))
-year = int(input("Please, enter your year of birth: "))
+#Juegos ganados por A: 4
+#Juegos ganados por B: 5
+#Aun no termina
+#Juegos ganados por A: 5
+#Juegos ganados por B: 7
+#Gano B
+#Juegos ganados por A: 5
+#Juegos ganados por B: 6
+#Aun no termina
+#Juegos ganados por A: 3
+#Juegos ganados por B: 7
+#Invalido
+#Juegos ganados por A: 6
+#Juegos ganados por B: 4
+#Gano A
+p1 = int(input("games won by A: "))
+p2 = int(input("games won by B: "))
 
-t = localtime()
-actual_day = t.tm_mday
-actual_month = t.tm_mon
-actual_year = t.tm_year
+#IF ITS INVALID
+if p1 > 7 or p2 > 7 or ( p1==7 and p2 < 5) or (p2==7 and p1 < 5) or abs(p1-p2) > 2:
+    print ("Invalid")
+#IF ITS NOT FINISHED
+elif (p1 <= 6 and p2 <= 6 ) or (p1==6 and p2==6):
+    print ("It's not over yet")
+#IF P1 WON
+elif (p1 == 6 and p2 <= 4) or (p1 == 7 and p2 == 5) or (p1 == 7 and p2 == 6):
+    print ("Won A")
 
-age = actual_year - year
-
-if (actual_month < month) or (actual_month == month and actual_day < day):
-    age -=1 
-
-print (f"you have {age} years old")
-
-# !!!! watchouts !!!
-#from time import localtime
-#t = localtime()
-#actual_day = t.tm_mday
-#actual_month = t.tm_mon
-#actual_year = t.tm_year
+elif (p2 == 6 and p1 <= 4) or (p2 == 7 and p1 == 5) or (p2 == 7 and p1 == 6):
+    print ("Won B")
