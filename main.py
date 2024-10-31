@@ -1,17 +1,33 @@
-# Solicitar al usuario que ingrese un año
-year = int(input("Enter any year "))
+#Escriba un programa que pida dos números enteros y que calcule la división, indicando si la división es exacta o no.
 
-# determinate if the year is a leap year
-if year < 1582:
-      # Julian calendar
-    if year % 4 == 0:
-        print(f"{year} is a leap year !!")
-    else:
-        print(f"{year} is not a leap year")
-#  gregorian Calendar
-else:  
-    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-        print(f"{year} is a leap year !!")
-    else:
-        print(f"{year} is not a leap year")
+#Dividendo: 14
+#Divisor: 5
+
+#La división no es exacta.
+#Cociente: 2
+#Resto: 4
+#dividendo: 100
+#Divisor: 10
+
+#La división es exacta.
+#Cociente: 10
+#Resto: 0
+
+# Solicitar al usuario que ingrese el dividendo y el divisor
+div = int(input("Dividends: "))
+div2 = int(input("Divider: "))
+
+# Calcular el cociente y el resto
+quotient = div // div2
+reminder = div % div2
+
+# Verificar si la división es exacta
+if reminder == 0:
+    print("La división es exacta.")
+else:
+    print("La división no es exacta.")
+
+# Mostrar el cociente y el resto
+print(f"quotient: {quotient}")
+print(f"Reminder: {reminder}")
 
